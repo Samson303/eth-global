@@ -1,29 +1,7 @@
 @import '../../styles/variables';
-.gallery {
-  display: block;
-  form {
-    margin-bottom: $spacer * 3;
-  }
-  label {
-    height: 0;
-    margin: 0;
-    visibility: hidden;
-  }
-  // grab the channel teaser on front page
-  // stylelint-disable-next-line
-  article > div > h2 + div {
-    padding-top: $spacer / 2;
-  }
-}
+
 
 .title {
-  font-size: $font-size-h4;
-  text-align: center;
-  color: $brand-grey-light;
-  border-bottom: 1px solid $brand-grey-lighter;
-  padding-bottom: $spacer / 3;
-  margin-top: $spacer * 3;
-  margin-bottom: $spacer;
   @media (min-width: $break-point--small) {
     text-align: left;
   }
@@ -38,7 +16,6 @@
 .category {
   h3 {
     font-size: $font-size-base;
-    color: $brand-grey;
     margin-top: -($spacer / 3);
     margin-bottom: 0;
   }
@@ -51,3 +28,14 @@
     }
   }
 }
+
+.alignRight {
+  width: 100%;
+  text-align: right;
+}
+
+.alignLeft {
+  width: 100%;
+  text-align: left;
+}
+  
