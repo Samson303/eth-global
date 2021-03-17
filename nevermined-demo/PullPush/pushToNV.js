@@ -1,13 +1,16 @@
 import { Nevermined } from '@nevermined-io/nevermined-sdk-js'
 import { config } from './config.js'
+import { Contract, ethers, providers } from 'ethers'
+import mintBaseABI from "../abis/mint.json"
+import { nftStoreContractAddress } from '../config'
 
- async function demo() {
-     // Instantiate nevermined with a config
-     const nevermined = await Nevermined.getInstance(config)
+async function pushToNV() {
+    // Instantiate nevermined with a config
+    const nevermined = await Nevermined.getInstance(config)
 
-     // Get two accounts. This is only available when using the SEED_WORDS
-     let publisher, consumer
-     [publisher, consumer] = await nevermined.accounts.list()
+    // Get two accounts. This is only available when using the SEED_WORDS
+    let publisher, consumer
+    [publisher, consumer] = await nevermined.accounts.list()
 
     // Define the asset metadata
     // This are the required fields but we can add any additional fields we want
@@ -54,6 +57,19 @@ import { config } from './config.js'
         './downloads'
     )
     console.log("File(s) downloaded to:", path)
- }
+}
 
- demo()
+async function pullFromMB() {
+    // Get two accounts. This is only available when using the SEED_WORDS
+    let consumer
+    [ consumer ] = await nevermined.accounts.list()
+
+    let storeContract = new Contract(
+        nftStoreContractAddress,
+        mintBaseABI,
+        new providers.Web3Provider(consumer.currentProvider, 'rinkeby'))
+
+    const totalSupply = await storeContract.totalSupply()
+    const totalSupplyAsInt = parseInt(totalSupply.toString())
+}
+

@@ -26,3 +26,5 @@ if (process.env.SEED_WORDS) {
 }
 
 export const config = configJson
+
+export const nftStoreContractAddress = '0xb44fcb09a1504a69c1ebae4e599c53ed9f4801fe'
