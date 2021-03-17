@@ -57,3 +57,11 @@ import { config } from './config.js'
  }
 
  demo()
+    .then( _ => {
+        console.log("Finished")
+        process.exit(0)
+    })
+    .catch(err => {
+        console.log(err)
+        process.exit(1)
+    })
