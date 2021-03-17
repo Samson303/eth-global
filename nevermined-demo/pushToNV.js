@@ -1,10 +1,10 @@
-import { Nevermined } from '@nevermined-io/nevermined-sdk-js'
+import {Nevermined} from '@nevermined-io/nevermined-sdk-js'
 import { config } from './config.js'
-import { Contract, ethers, providers } from 'ethers'
-import mintBaseABI from "../abis/mint.json"
-import { nftStoreContractAddress } from '../config'
+import {Contract, ethers, providers} from 'ethers'
+import mintBaseABI from "./abis/mint.json"
+import {nftStoreContractAddress, nftBaseUri} from './config'
 
-async function pushToNV() {
+async function pushToNV(nftData) {
     // Instantiate nevermined with a config
     const nevermined = await Nevermined.getInstance(config)
 
@@ -59,17 +59,41 @@ async function pushToNV() {
     console.log("File(s) downloaded to:", path)
 }
 
-async function pullFromMB() {
+async function fetchMarketNfts() {
     // Get two accounts. This is only available when using the SEED_WORDS
-    let consumer
-    [ consumer ] = await nevermined.accounts.list()
+    // let consumer
+    // [consumer] = await nevermined.accounts.list()
 
-    let storeContract = new Contract(
+    //create HDWallet
+    // const ethersProvider = ethers.providers.getDefaultProvider(config.defaultProvider)
+
+    let contract = new Contract(
         nftStoreContractAddress,
         mintBaseABI,
-        new providers.Web3Provider(consumer.currentProvider, 'rinkeby'))
+        new providers.Web3Provider(config.web3Provider, 'rinkeby'))
 
-    const totalSupply = await storeContract.totalSupply()
+    const totalSupply = await contract.totalSupply()
     const totalSupplyAsInt = parseInt(totalSupply.toString())
+
+    const nftIndices = [...Array(totalSupplyAsInt).keys()]
+
+    nftIndices.map(async (i) => {
+        let tokenIndex = await contract.functions.tokenByIndex(i)
+        let tokenURI = await contract.functions.tokenURI(tokenIndex.toString())
+        console.log(tokenURI)
+        const nftId = tokenURI[0].split(nftBaseUri)[1]
+
+        let nft = await fetchNft(nftId)
+        console.log(nft)
+        return nft
+    })
+
+    async function fetchNft(nftId) {
+        const response = await fetch(nftBaseUri.concat(nftId))
+        const nftData = (await response.json())
+        return nftData
+    }
 }
+
+fetchMarketNfts()
 
