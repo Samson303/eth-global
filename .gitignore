@@ -1,0 +1,26 @@
+nevermined-demo/node_modules
+nevermined-demo/downloads
+rare-fx/node_modules
+
+
+# dependencies
+rare-fx/node_modules
+rare-fx/.pnp
+rare-fx/.pnp.js
+
+# testing
+rare-fx/coverage
+
+# production
+rare-fx/build
+
+# misc
+rare-fx/.DS_Store
+rare-fx/.env.local
+rare-fx/.env.development.local
+rare-fx/.env.test.local
+rare-fx/.env.production.local
+
+rare-fx/npm-debug.log*
+rare-fx/yarn-debug.log*
+rare-fx/yarn-error.log*
