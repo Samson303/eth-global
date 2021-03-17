@@ -2,6 +2,7 @@
     "type": "module",
     "dependencies": {
         "@nevermined-io/nevermined-sdk-js": "0.8.0",
-        "@truffle/hdwallet-provider": "^1.2.3"
+        "@truffle/hdwallet-provider": "^1.2.3",
+        "ethers": "^5.0.30"
     }
 }

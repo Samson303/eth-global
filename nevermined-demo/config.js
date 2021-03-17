@@ -2,7 +2,7 @@ import HDWalletProvider from '@truffle/hdwallet-provider'
 
 const configJson = {
     nodeUri: 'http://localhost:8545',
-    metadataUri: 'http://172.17.0.1:5000',
+    metadataUri: 'http://host.docker.internal:5000',
     faucetUri: 'http://localhost:3001',
     gatewayUri: 'http://localhost:8030',
     secretStoreUri: 'http://localhost:12001',
@@ -26,3 +26,6 @@ if (process.env.SEED_WORDS) {
 }
 
 export const config = configJson
+
+export const nftStoreContractAddress = '0xb44fcb09a1504a69c1ebae4e599c53ed9f4801fe'
+export const nftBaseUri = 'https://arweave.net/'
