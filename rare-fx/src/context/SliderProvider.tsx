@@ -30,6 +30,7 @@ function SliderProvider({ children }: { children: ReactNode }): ReactElement {
   const prev = (numberOfItems: number) => {
     const numberOfIndex = numberOfIndexes(numberOfItems)
     const newIndex = currentIndex === 0 ? numberOfIndex : currentIndex - 1
+    setIndex(newIndex)
   }
 
   return (
