@@ -66,18 +66,19 @@ async function fetchNft(nftId) {
 
 async function pushToNVM(nft, publisher, nevermined) {
 
-    console.log('NFT: ', nft)
+    const checkAttribute = (nft, attribute) => {
+        console.log(nft.attributes)
+        let attributeValue = (nft.attributes.filter((element) => element.trait_type === attribute).length > 0) ? nft.attributes.filter((element) => element.trait_type === attribute)[0].value : ''
+        return attributeValue
+    }
 
-    // Define the asset metadata
-    // This are the required fields but we can add any additional fields we want
-    // under additionalInformation
     const metadata = {
         main: {
             name: nft.name,
             type: 'dataset',
             dateCreated: new Date().toISOString().split('.')[0] + 'Z',
             datePublished: new Date().toISOString().split('.')[0] + 'Z',
-            author: nft.attributes.filter((element) => element.trait_type === 'artist')[0].value,
+            author: checkAttribute(nft, 'artist'),
             license: 'CC-BY',
             price: nft.price,
             files: [
@@ -89,13 +90,13 @@ async function pushToNVM(nft, publisher, nevermined) {
             ]
         },
         additionalInformation: {
-            website: nft.attributes.filter((element) => element.trait_type === 'website')[0].value,
-            mintbaseUrl: nft.attributes.filter((element) => element.trait_type === 'mintbase_url')[0].value,
-            artistAddress: nft.attributes.filter((element) => element.trait_type === 'artist_address')[0].value,
+            website: checkAttribute(nft, 'website'),
+            mintbaseUrl: checkAttribute(nft, 'mintbase_url'),
+            artistAddress: checkAttribute(nft, 'artist_address'),
         }
     }
 
-    console.log('metadata: ', metadata)
+    // console.log('metadata: ', metadata)
 
     // Publish the asset on nevermined
     const ddo = await nevermined.assets.create(metadata, publisher)
