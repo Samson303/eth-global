@@ -1,0 +1,10 @@
+@import '../../styles/variables';
+
+.button {
+    height: 50px;
+    width: 50px;
+    padding: 8px;
+    border: 1px solid;
+    border-radius: 50%;
+    background-color: $brand-grey;
+}
