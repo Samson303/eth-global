@@ -7,7 +7,6 @@ const RoundButton: React.FC = ({children}) => {
     return(
         <button className={styles.button}>
             {children}
-            {/* <span role="img" aria-label="sheep">🐑</span> */}
         </button>
     )
 }

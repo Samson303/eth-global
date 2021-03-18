@@ -7,6 +7,11 @@
   }
 }
 
+.wrapper {
+  height: 20vh;
+  padding-top: 25px;
+}
+
 .categories {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));

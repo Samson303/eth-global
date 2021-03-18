@@ -12,9 +12,12 @@ import TopBar from '../../components/molecules/TopBar/TopBar'
 const Home: React.FC = () => { 
     return (
         <Page>
-            <TopBar /> 
-            <LikeBar /> 
+            <div className={styles.wrapper}>
+                <TopBar /> 
+                <LikeBar /> 
+            </div>
             <GridPlaceHolder />
+            <LikeBar /> 
             <BottomViewBar /> 
         </Page>
     )

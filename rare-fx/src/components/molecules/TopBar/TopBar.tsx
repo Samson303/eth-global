@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from '../../atoms/Button'
 import Emoji from '../../atoms/Emoji'
+import FadedRoundButton from '../../atoms/FadedRoundButton'
 import RoundButton from '../../atoms/RoundButton'
 import styles from './TopBar.module.scss'
 
@@ -8,9 +9,9 @@ const TopBar: React.FC = () => {
     return(
         <div className={styles.topGrid}>
             <div className={styles.alignLeft}>
-                <RoundButton>
+                <FadedRoundButton>
                     <Emoji emoji={"📢"} label={"dislike"}/>
-                </RoundButton>
+                </FadedRoundButton>
             </div>
             <div className={styles.alignRight}>
                 <Button name={'CREATE'}/>
@@ -19,9 +20,9 @@ const TopBar: React.FC = () => {
                 <Button name={'COLLECT'}/>
             </div>
             <div className={styles.alignRight}>
-                <RoundButton>
+                <FadedRoundButton>
                     <Emoji emoji={"👨🏻"} label={"like"}/> 
-                </RoundButton>
+                </FadedRoundButton>
             </div>
         </div>
     )
