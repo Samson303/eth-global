@@ -7,6 +7,7 @@ import BottomViewBar from '../../components/molecules/BottomViewBar/BottomViewBa
 import styles from './Home.module.scss'
 import LikeBar from '../../components/molecules/LikeBar/LikeBar'
 import TopBar from '../../components/molecules/TopBar/TopBar'
+import SwipeBar from '../../components/molecules/SwipeBar/SwipeBar'
 
 
 const Home: React.FC = () => { 
@@ -17,8 +18,10 @@ const Home: React.FC = () => {
                 <LikeBar /> 
             </div>
             <GridPlaceHolder />
-            <LikeBar /> 
-            <BottomViewBar /> 
+            <div className={styles.bottomWrapper}>
+                <SwipeBar />
+                <BottomViewBar /> 
+            </div>
         </Page>
     )
 }   

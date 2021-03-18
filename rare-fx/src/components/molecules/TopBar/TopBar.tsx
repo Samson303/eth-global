@@ -20,6 +20,9 @@ const TopBar: React.FC = () => {
                 <Button name={'COLLECT'}/>
             </div>
             <div className={styles.alignRight}>
+                <FadedRoundButton >
+                    <Emoji emoji={"⏯"} label={"like"}/> 
+                </FadedRoundButton>
                 <FadedRoundButton>
                     <Emoji emoji={"👨🏻"} label={"like"}/> 
                 </FadedRoundButton>
