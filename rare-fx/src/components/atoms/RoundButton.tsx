@@ -1,14 +1,16 @@
 import React from 'react'
 import styles from './RoundButton.module.scss'
 
-
-
-const RoundButton: React.FC = ({children}) => {
-    return(
-        <button className={styles.button}>
-            {children}
-        </button>
-    )
+interface IProps {
+  onClick?: () => void
+  children: React.ReactNode
+}
+const RoundButton = ({ children, onClick }: IProps) => {
+  return (
+    <button className={styles.button} onClick={onClick}>
+      {children}
+    </button>
+  )
 }
 
 export default RoundButton
