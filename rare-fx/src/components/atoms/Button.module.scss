@@ -11,3 +11,11 @@
     background-color: #424B5A;
     color: white;
 }
+
+.button:hover {
+    background-color: white; 
+    color: #424B5A;
+
+    border: 2px solid #424B5A; 
+    cursor: pointer;
+  }
