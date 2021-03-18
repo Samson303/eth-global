@@ -34,7 +34,7 @@ import { config } from './config.js'
 
     // Publish the asset on nevermined
     const ddo = await nevermined.assets.create(metadata, publisher)
-    console.log('Registered asset with DID:', ddo.id)
+    console.log('Registered asset with DID:', ddo)
 
     // Request some tokens from the faucet so that the consumer
     // can purchase the asset
@@ -56,4 +56,11 @@ import { config } from './config.js'
     console.log("File(s) downloaded to:", path)
  }
 
- demo()
+ demo().then( _ => {
+        console.log("Finished")
+        process.exit(0)
+    })
+    .catch(err => {
+        console.log(err)
+        process.exit(1)
+    })
