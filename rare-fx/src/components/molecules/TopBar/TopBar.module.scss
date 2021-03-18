@@ -1,4 +1,13 @@
 
+.topGrid {
+    
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 1%;
+
+}
+
 .alignRight {
     width: 100%;
     text-align: right;

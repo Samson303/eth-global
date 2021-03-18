@@ -3,7 +3,7 @@ import Button from '../../atoms/Button'
 import ButtonActionGrid from '../ButtonActionGrid'
 import styles from './BottomViewBar.module.scss'
 
-const ViewBar: React.FC = () => {
+const BottomViewBar: React.FC = () => {
     return(
         <ButtonActionGrid>
             <div className={styles.alignRight}>
@@ -16,4 +16,4 @@ const ViewBar: React.FC = () => {
     )
 }
 
-export default ViewBar
+export default BottomViewBar
