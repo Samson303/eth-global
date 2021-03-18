@@ -7,7 +7,11 @@ function App() {
   return(
     <div className={styles.app}>
       <Router>
-       <Routes />
+      <>
+        <main className={styles.main}>
+          <Routes />
+        </main>
+      </>
       </Router>
     </div>
   )
