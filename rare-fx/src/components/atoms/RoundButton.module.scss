@@ -8,3 +8,10 @@
     border-radius: 50%;
     background-color: $brand-grey;
 }
+
+.button:hover {
+    
+    background-color: white;
+    border: 2px solid $brand-grey; 
+    cursor: pointer; 
+}
