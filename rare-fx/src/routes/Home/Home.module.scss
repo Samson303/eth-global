@@ -7,6 +7,18 @@
   }
 }
 
+.wrapper {
+  height: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.bottomWrapper {
+  height: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
 .categories {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
@@ -29,13 +41,4 @@
   }
 }
 
-.alignRight {
-  width: 100%;
-  text-align: right;
-}
 
-.alignLeft {
-  width: 100%;
-  text-align: left;
-}
-  

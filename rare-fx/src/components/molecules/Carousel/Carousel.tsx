@@ -1,68 +1,33 @@
-import * as React from 'react'
-import styled, { css } from 'styled-components'
-
-const SCarouselWrapper = styled.div`
-  display: flex;
-`
-
-interface ICarouselSlide {
-  active?: boolean
-}
-
-const SCarouselSlide = styled.div<ICarouselSlide>`
-  flex: 0 0 auto;
-  opacity: ${(props) => (props.active ? 1 : 0)};
-  transition: all 0.5s ease;
-  width: 100%;
-`
-
-interface ICarouselProps {
-  currentSlide: number
-}
-
-const SCarouselSlides = styled.div<ICarouselProps>`
-  display: flex;
-  ${(props) =>
-    props.currentSlide &&
-    css`
-      transform: translateX(-${props.currentSlide * 100}%);
-    `};
-  transition: all 0.5s ease;
-`
+import React, { useState } from 'react'
+import Slider from '@farbenmeer/react-spring-slider'
+import Slide from './Slide'
+import Arrows from './Arrows'
+import Bullet from './BulletComponent'
+import SwipeBar from '../SwipeBar/SwipeBar'
+import Button from '../../atoms/Button'
+import { useSlider } from '../../../context/SliderProvider'
 
 interface IProps {
-  children: JSX.Element[]
+  imagesUrls: string[]
 }
 
-const Carousel = ({ children }: IProps) => {
-  const [currentSlide, setCurrentSlide] = React.useState(0)
-
-  const activeSlide = children.map((slide, index) => (
-    <SCarouselSlide active={currentSlide === index} key={index}>
-      {slide}
-    </SCarouselSlide>
-  ))
+const Carousel = ({ imagesUrls }: IProps) => {
+  const slides = imagesUrls.map((imageUrl) => <Slide imageUrl={imageUrl} />)
+  const onSlideChange = (index: number) => console.log(`changed to slide ${index}`)
+  const { currentIndex, next, prev } = useSlider()
 
   return (
-    <div>
-      <SCarouselWrapper>
-        <SCarouselSlides currentSlide={currentSlide}>{activeSlide}</SCarouselSlides>
-      </SCarouselWrapper>
-      <button
-        onClick={() => {
-          setCurrentSlide((currentSlide - 1 + activeSlide.length) % activeSlide.length)
-        }}
+    <>
+      <Slider
+        hasBullets
+        onSlideChange={onSlideChange}
+        BulletComponent={Bullet}
+        auto={10000}
+        activeIndex={currentIndex}
       >
-        Left
-      </button>
-      <button
-        onClick={() => {
-          setCurrentSlide((currentSlide + 1) % activeSlide.length)
-        }}
-      >
-        Right
-      </button>
-    </div>
+        {slides}
+      </Slider>
+    </>
   )
 }
 
