@@ -15,7 +15,8 @@ interface IProps {
 const Carousel = ({ ddos }: IProps) => {
   const slides = ddos.map((ddo) => <Slide ddo={ddo} />)
   const { currentIndex } = useSlider()
-
+  const currentDDO = ddos[currentIndex]
+  console.log(currentDDO)
   return (
     <>
       <Slider hasBullets BulletComponent={Bullet} auto={10000} activeIndex={currentIndex}>
