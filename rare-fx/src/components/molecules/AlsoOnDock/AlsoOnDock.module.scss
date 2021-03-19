@@ -1,0 +1,40 @@
+
+.cardWrapper {
+    background-color: grey;
+    height: 100%; 
+    position: relative; 
+    display: flex;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.card {
+    height: 200px;
+    width: 200px; 
+    background-color: hotpink;
+}
+
+.closeButton {
+    position: absolute; 
+    top: 3%;
+    right: 1%; 
+    cursor: pointer; 
+}
+
+.cardGrid {
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.overflow {
+    overflow: hidden;
+}
+
+.sticky {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 300px;
+    width: 100%;
+}
