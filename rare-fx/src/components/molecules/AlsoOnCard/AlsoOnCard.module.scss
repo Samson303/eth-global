@@ -1,0 +1,30 @@
+
+.cardWrapper {
+    height: auto;
+    width: 200px;
+    display: wrap;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 2px;
+
+    margin: auto;
+}
+
+.image {
+    height: 160px;
+    width: 200px; 
+    border-radius: 2px; 
+    background-position: center;
+
+}
+
+.text {
+    text-align: center;
+    padding: 10px;
+}
+
+.moreInfo {
+    border-top: 1px solid lightgrey;
+    padding: 10px;
+    text-align: center;
+}
