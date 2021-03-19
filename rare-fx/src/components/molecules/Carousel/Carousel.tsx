@@ -19,7 +19,7 @@ const Carousel = ({ ddos }: IProps) => {
   console.log(currentDDO)
   return (
     <>
-      <Slider hasBullets BulletComponent={Bullet} auto={10000} activeIndex={currentIndex}>
+      <Slider auto={10000} activeIndex={currentIndex}>
         {slides}
       </Slider>
     </>
