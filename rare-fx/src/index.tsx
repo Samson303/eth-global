@@ -2,10 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+import NvmProvider from "./context/NvmProvider";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <NvmProvider>
+      <App/>
+    </NvmProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 )

@@ -20,10 +20,11 @@ if (process.env.NETWORK_NAME === 'rinkeby') {
     })
 }
 
-if (process.env.SEED_WORDS) {
-    const seedphrase = process.env.SEED_WORDS
-    configJson.web3Provider = new HDWalletProvider(seedphrase, configJson.nodeUri, 0, 5)
-}
+configJson.web3Provider = new HDWalletProvider("taxi music thumb unique chat sand crew more leg another off lamp", configJson.nodeUri, 0, 5)
+// if (process.env.SEED_WORDS) {
+//     const seedphrase = process.env.SEED_WORDS
+//     configJson.web3Provider = new HDWalletProvider(seedphrase, configJson.nodeUri, 0, 5)
+// }
 
 export const config = configJson
 
