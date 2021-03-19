@@ -1,6 +1,18 @@
 .slide {
-    width: 50vh;
-    border-radius: 10px;
-    justify-content: center;
-    border: 10px solid purple;
+    height: auto;
+    max-height: 500px;
+    max-width: 500px; 
+    border-radius: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.slideWrapper {
+    height: 500px;
+    width: 500px; 
+    margin: auto; 
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
 }
