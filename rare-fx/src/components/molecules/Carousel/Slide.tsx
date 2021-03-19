@@ -11,9 +11,7 @@ const Slide = ({ ddo }: IProps) => {
 
   return (
     <div className={styles.slider}>
-      <div className={styles.slideWrapper}>
-        <img src={imageUrl} alt="" className={styles.slide} />
-      </div>
+        <img src={imageUrl} alt="" className={styles.image} />
     </div>
   )
 }

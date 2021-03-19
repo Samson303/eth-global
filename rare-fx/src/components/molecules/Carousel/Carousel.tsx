@@ -18,7 +18,7 @@ const Carousel = ({ ddos }: IProps) => {
 
   return (
     <>
-      <Slider auto={10000} activeIndex={currentIndex}>
+      <Slider  activeIndex={currentIndex}>
         {slides}
       </Slider>
     </>

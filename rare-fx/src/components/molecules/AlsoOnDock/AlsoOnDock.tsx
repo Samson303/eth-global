@@ -12,10 +12,19 @@ import {
   rareEffectImage,
   rareEffectUrl,
 } from '../../atoms/ImageUrls'
-import { useSlider } from '../../../context/SliderProvider'
-import { useNvm } from '../../../context/NvmProvider'
 
-const AlsoOnDock = () => {
+import { SlideDown } from 'react-slidedown'
+import 'react-slidedown/lib/slidedown.css'
+import { useNvm } from '../../../context/NvmProvider'
+import { useSlider } from '../../../context/SliderProvider'
+
+interface IProps {
+  cryptoVoxelUrl?: string
+  rareEffectUrl?: string
+  othersUrls?: string[]
+}
+
+const AlsoOnDock = ({ cryptoVoxelUrl, rareEffectUrl, othersUrls }: IProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const { currentIndex } = useSlider()
   const { DDOs } = useNvm()
@@ -25,11 +34,6 @@ const AlsoOnDock = () => {
   })
   const currentDDO = DDOs[currentIndex]
 
-  console.log(currentDDO)
-  const handleToggle = () => {
-    setIsOpen(!isOpen)
-  }
-
   useEffect(() => {
     if (currentDDO)
       setNftData({
@@ -38,45 +42,51 @@ const AlsoOnDock = () => {
       })
   }, [currentIndex, DDOs])
 
+  const handleToggle = () => {
+    setIsOpen(!isOpen)
+  }
+
   return (
     <>
-      {!isOpen && (
-        <DockButton onClick={handleToggle}>
-          <Emoji emoji={'🔮'} label={'dislike'} />
-        </DockButton>
-      )}
-      {isOpen && (
-        <div className={styles.sticky}>
-          <div className={styles.cardWrapper}>
-            {/* <div className={styles.artistName}>
-              <h3>
+      <DockButton onClick={handleToggle}>
+        <Emoji emoji={'🔮'} label={'dislike'} />
+      </DockButton>
+      <SlideDown className={'my-dropdown-slidedown'}>
+        {isOpen ? (
+          <div className={styles.slider}>
+            <div className={styles.cardWrapper}>
+              <button onClick={handleToggle} className={styles.closeButton}>
+                x
+              </button>
+              <h3 className={styles.artistName}>
                 {nftData.nftName} by {nftData.nftAuthor}
               </h3>
-            </div> */}
-            <button onClick={handleToggle} className={styles.closeButton}>
-              x
-            </button>
-            <div className={styles.cardGrid}>
-              <AlsoOnCard
-                serviceUrl={rareEffectUrl}
-                serviceImageUrl={rareEffectImage}
-                serviceName={'RareEffectV2'}
-              />
-              <AlsoOnCard
-                serviceUrl={cryptoVoxelsUrl}
-                serviceImageUrl={cryptoVoxelsImage}
-                serviceName={'VR'}
-              />
-              <AlsoOnCard
-                serviceUrl={openSeaUrl}
-                serviceImageUrl={openSeaImage}
-                serviceName={'OpenSea'}
-              />
-              <AlsoOnCard />
+              <div className={styles.cardGrid}>
+                <AlsoOnCard
+                  serviceUrl={rareEffectUrl}
+                  serviceImageUrl={rareEffectImage}
+                  serviceName={'RareEffectV2'}
+                />
+                <AlsoOnCard
+                  serviceUrl={cryptoVoxelsUrl}
+                  serviceImageUrl={cryptoVoxelsImage}
+                  serviceName={'VR'}
+                />
+                <AlsoOnCard
+                  serviceUrl={openSeaUrl}
+                  serviceImageUrl={openSeaImage}
+                  serviceName={'OpenSea'}
+                />
+                <AlsoOnCard
+                  serviceUrl={openSeaUrl}
+                  serviceImageUrl={openSeaImage}
+                  serviceName={'OpenSea'}
+                />
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        ) : null}
+      </SlideDown>
     </>
   )
 }
