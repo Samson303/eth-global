@@ -9,21 +9,26 @@ import LikeBar from '../../components/molecules/LikeBar/LikeBar'
 import TopBar from '../../components/molecules/TopBar/TopBar'
 import SwipeBar from '../../components/molecules/SwipeBar/SwipeBar'
 import { SliderProvider } from '../../context/SliderProvider'
+import AlsoOnDock from '../../components/molecules/AlsoOnDock/AlsoOnDock'
+import { DockerProvider } from '../../context/DockProvider'
 
 const Home: React.FC = () => {
   return (
     <SliderProvider>
-      <Page>
-        <div className={styles.wrapper}>
-          <TopBar />
-          <LikeBar />
-        </div>
-        <GridPlaceHolder />
-        <div className={styles.bottomWrapper}>
-          <SwipeBar />
-          <BottomViewBar />
-        </div>
-      </Page>
+      <DockerProvider>
+        <Page>
+          <div className={styles.wrapper}>
+            <TopBar />
+            <LikeBar />
+          </div>
+          <GridPlaceHolder />
+          <div className={styles.bottomWrapper}>
+            <SwipeBar />
+            <BottomViewBar />
+          </div>
+          <AlsoOnDock />
+        </Page>
+      </DockerProvider>
     </SliderProvider>
   )
 }
