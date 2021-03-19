@@ -2,9 +2,13 @@ import React from 'react'
 import styles from './FadedRoundButton.module.scss'
 
 
-const FadedRoundButton: React.FC = ({children}) => {
+interface IProps {
+    onClick?: () => void 
+}
+
+const FadedRoundButton: React.FC<IProps> = ({children, onClick}) => {
     return(
-        <button className={styles.button}>
+        <button className={styles.button} onClick={onClick}>
             {children}
         </button>
     )

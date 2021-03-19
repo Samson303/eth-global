@@ -15,7 +15,6 @@ import { DockerProvider } from '../../context/DockProvider'
 const Home: React.FC = () => {
   return (
     <SliderProvider>
-      <DockerProvider>
         <Page>
           <div className={styles.wrapper}>
             <TopBar />
@@ -28,7 +27,6 @@ const Home: React.FC = () => {
           </div>
           <AlsoOnDock />
         </Page>
-      </DockerProvider>
     </SliderProvider>
   )
 }

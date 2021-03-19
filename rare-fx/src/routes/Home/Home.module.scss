@@ -8,37 +8,18 @@
 }
 
 .wrapper {
-  height: 100%;
+  height: auto;
   padding-top: 15px;
   padding-bottom: 15px;
 }
 
 .bottomWrapper {
-  height: 100%;
+  height: 15%;
   padding-top: 15px;
   padding-bottom: 15px;
 }
 
-.categories {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-  grid-gap: $spacer;
-}
 
-.category {
-  h3 {
-    font-size: $font-size-base;
-    margin-top: -($spacer / 3);
-    margin-bottom: 0;
-  }
-  &:hover,
-  &:focus {
-    transform: none;
-    > div {
-      opacity: 1;
-      background-size: 105%;
-    }
-  }
-}
+
 
 
