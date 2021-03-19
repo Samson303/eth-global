@@ -3,9 +3,7 @@
     background-color: grey;
     height: 100%;
     position: relative;
-    display: flex;
     padding: 20px;
-    overflow: hidden;
 }
 
 .card {
@@ -25,6 +23,10 @@
     display: grid;
     grid-gap: 40px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    justify-content: center;
+    align-content: center;
+    grid-auto-flow: column;
 }
 
 .overflow {
@@ -45,11 +47,8 @@
     bottom: 0;
     //height: 300px;
     width: 100%;
-    //overflow-y: hidden;
+    overflow-y: hidden;
     max-height: 600px; /* approximate max height */
-    //transition-property: all;
-    //transition-duration: 1s;
-    //transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 
 }
 

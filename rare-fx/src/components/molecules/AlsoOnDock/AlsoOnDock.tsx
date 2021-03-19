@@ -3,6 +3,7 @@ import {useDocker} from '../../../context/DockProvider'
 import styles from './AlsoOnDock.module.scss'
 import Emoji from '../../atoms/Emoji'
 import DockButton from '../../atoms/DockButton'
+import AlsoOnCard from '../AlsoOnCard/AlsoOnCard'
 
 import {SlideDown} from 'react-slidedown'
 import 'react-slidedown/lib/slidedown.css'
@@ -15,7 +16,6 @@ interface IProps {
 
 
 const AlsoOnDock = ({cryptoVoxelUrl, rareEffectUrl, othersUrls}: IProps) => {
-  const {isActive, toggleActive} = useDocker()
 
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
@@ -34,54 +34,17 @@ const AlsoOnDock = ({cryptoVoxelUrl, rareEffectUrl, othersUrls}: IProps) => {
                 x
               </button>
               <div className={styles.cardGrid}>
-                <div className={styles.card}>
-                  A Card
-                </div>
-                <div className={styles.card}>
-                  A Card
-                </div>
-                <div className={styles.card}>
-                  A Card
-                </div>
-                <div className={styles.card}>
-                  A Card
-                </div>
+                <AlsoOnCard imgUrl={"https://via.placeholder.com/150"} artworkTitle={"The Future"}/>
+                <AlsoOnCard imgUrl={"https://via.placeholder.com/150"} artworkTitle={"The Future"}/>
+                <AlsoOnCard imgUrl={"https://via.placeholder.com/150"} artworkTitle={"The Future"}/>
+                <AlsoOnCard imgUrl={"https://via.placeholder.com/150"} artworkTitle={"The Future"}/>
               </div>
             </div>
           </div>
           : null}
       </SlideDown>
-
     </>
   )
 }
 
 export default AlsoOnDock
-
-
-// <>
-// {!isOpen && <DockButton onClick={handleToggle}><Emoji emoji={"🔮"} label={"dislike"}/></DockButton>}
-// {isOpen &&
-// <div className={clsx(isOpen ? styles.slider : styles.closed)}>
-//     <div className={styles.cardWrapper}>
-//         <button onClick={handleToggle} className={styles.closeButton}>
-//             x
-//         </button>
-//         <div className={styles.cardGrid}>
-//             <div className={styles.card}>
-//                 A Card
-//             </div>
-//             <div className={styles.card}>
-//                 A Card
-//             </div>
-//             <div className={styles.card}>
-//                 A Card
-//             </div>
-//             <div className={styles.card}>
-//                 A Card
-//             </div>
-//         </div>
-//     </div>
-// </div>
-// }
-// </>
