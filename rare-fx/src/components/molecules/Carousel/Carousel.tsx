@@ -6,25 +6,20 @@ import Bullet from './BulletComponent'
 import SwipeBar from '../SwipeBar/SwipeBar'
 import Button from '../../atoms/Button'
 import { useSlider } from '../../../context/SliderProvider'
+import { DDO } from '@nevermined-io/nevermined-sdk-js'
 
 interface IProps {
-  imagesUrls: string[]
+  ddos: DDO[]
 }
 
-const Carousel = ({ imagesUrls }: IProps) => {
-  const slides = imagesUrls.map((imageUrl) => <Slide imageUrl={imageUrl} />)
-  const onSlideChange = (index: number) => console.log(`changed to slide ${index}`)
-  const { currentIndex, next, prev } = useSlider()
-
+const Carousel = ({ ddos }: IProps) => {
+  const slides = ddos.map((ddo) => <Slide ddo={ddo} />)
+  const { currentIndex } = useSlider()
+  const currentDDO = ddos[currentIndex]
+  console.log(currentDDO)
   return (
     <>
-      <Slider
-        hasBullets
-        onSlideChange={onSlideChange}
-        BulletComponent={Bullet}
-        auto={10000}
-        activeIndex={currentIndex}
-      >
+      <Slider hasBullets BulletComponent={Bullet} auto={10000} activeIndex={currentIndex}>
         {slides}
       </Slider>
     </>

@@ -11,10 +11,12 @@ import SwipeBar from '../../components/molecules/SwipeBar/SwipeBar'
 import { SliderProvider } from '../../context/SliderProvider'
 import AlsoOnDock from '../../components/molecules/AlsoOnDock/AlsoOnDock'
 import { DockerProvider } from '../../context/DockProvider'
+import NvmProvider from '../../context/NvmProvider'
 
 const Home: React.FC = () => {
   return (
-    <SliderProvider>
+    <NvmProvider>
+      <SliderProvider>
         <Page>
           <div className={styles.wrapper}>
             <TopBar />
@@ -27,7 +29,8 @@ const Home: React.FC = () => {
           </div>
           <AlsoOnDock />
         </Page>
-    </SliderProvider>
+      </SliderProvider>
+    </NvmProvider>
   )
 }
 
