@@ -21,10 +21,6 @@ async function run() {
         pushToNVM(nft, publisher, nevermined)
     })
 
-    // const ddo = await pushToNVM(nfts[0], publisher, nevermined)
-
-    // await pullFromNVM(ddo, consumer, nevermined)
-
     return
 
 }
@@ -90,6 +86,7 @@ async function pushToNVM(nft, publisher, nevermined) {
             ]
         },
         additionalInformation: {
+            image: nft.image,
             website: checkAttribute(nft, 'website'),
             mintbaseUrl: checkAttribute(nft, 'mintbase_url'),
             artistAddress: checkAttribute(nft, 'artist_address'),

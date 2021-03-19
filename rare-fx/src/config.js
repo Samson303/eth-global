@@ -12,18 +12,15 @@ const configJson = {
 
 if (process.env.NETWORK_NAME === 'rinkeby') {
     Object.assign(configJson, {
-      metadataUri: 'https://metadata.rinkeby.nevermined.rocks',
-      faucetUri: 'https://faucet.rinkeby.nevermined.rocks',
-      gatewayUri: 'https://gateway.rinkeby.nevermined.rocks',
-      nodeUri: `https://rinkeby.infura.io/v3/52b6d403f7de4757ab9ed23c3778a35b`,
-      gatewayAddress: '0x068Ed00cF0441e4829D9784fCBe7b9e26D4BD8d0',
+        metadataUri: 'https://metadata.rinkeby.nevermined.rocks',
+        faucetUri: 'https://faucet.rinkeby.nevermined.rocks',
+        gatewayUri: 'https://gateway.rinkeby.nevermined.rocks',
+        nodeUri: `https://rinkeby.infura.io/v3/52b6d403f7de4757ab9ed23c3778a35b`,
+        gatewayAddress: '0x068Ed00cF0441e4829D9784fCBe7b9e26D4BD8d0',
     })
 }
 
-if (process.env.SEED_WORDS) {
-    const seedphrase = process.env.SEED_WORDS
-    configJson.web3Provider = new HDWalletProvider(seedphrase, configJson.nodeUri, 0, 5)
-}
+configJson.web3Provider = new HDWalletProvider("taxi music thumb unique chat sand crew more leg another off lamp", configJson.nodeUri, 0, 5)
 
 export const config = configJson
 

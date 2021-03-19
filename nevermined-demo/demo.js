@@ -4,7 +4,7 @@ import { config } from './config.js'
  async function demo() {
      // Instantiate nevermined with a config
      const nevermined = await Nevermined.getInstance(config)
-
+     console.log(nevermined.keeper)
      // Get two accounts. This is only available when using the SEED_WORDS
      let publisher, consumer
      [publisher, consumer] = await nevermined.accounts.list()

@@ -6550,6 +6550,11 @@ jest@26.6.0:
     import-local "^3.0.2"
     jest-cli "^26.6.0"
 
+jose@^3.10.0:
+  version "3.10.0"
+  resolved "https://registry.yarnpkg.com/jose/-/jose-3.10.0.tgz#60ecb55213ead56c0ce598a7fb446fb0a005ec9e"
+  integrity sha512-rbVUNWkGSsvbGPdpBjnLgw0YNYr2zc50T3vutT8Mx/7QOTyilt5urqgyxySRR6aMzxCEh7N+y8PO16H4P57Chg==
+
 jose@^3.3.1:
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/jose/-/jose-3.9.0.tgz#4aafbfa5a53298377600ca9b219419fa898d05eb"
@@ -8916,9 +8921,10 @@ react-router@5.2.0:
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
 
-react-scripts@4.0.3:
+react-scripts@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-4.0.3.tgz#b1cafed7c3fa603e7628ba0f187787964cb5d345"
+  integrity sha512-S5eO4vjUzUisvkIPB7jVsKtuH2HhWcASREYWHAQ1FP5HyCv3xgn+wpILAEWkmy+A+tTNbSZClhxjT3qz6g4L1A==
   dependencies:
     "@babel/core" "7.12.3"
     "@pmmmwh/react-refresh-webpack-plugin" "0.4.3"
