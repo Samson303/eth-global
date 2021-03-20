@@ -9,7 +9,7 @@ const SwipeBar: React.FC = () => {
   const { prev, next } = useSlider()
 
   return (
-    <ButtonActionGrid>
+    <div className={styles.grid}>
       <div className={styles.alignRight}>
         <RoundButton onClick={prev}>
           <Emoji emoji={'👈'} label={'dislike'} />
@@ -20,7 +20,13 @@ const SwipeBar: React.FC = () => {
           <Emoji emoji={'👉'} label={'like'} />
         </RoundButton>
       </div>
-    </ButtonActionGrid>
+      {/* <div className={styles.madeByWrapper}>
+        <div className={styles.madeBy}>
+          Made with love by 🤖 || 👩‍🎨
+        </div>
+      </div> */}
+    </div>
+
   )
 }
 
