@@ -24,7 +24,7 @@ const Home: React.FC = () => {
           <GridPlaceHolder />
           <div className={styles.bottomWrapper}>
             <SwipeBar />
-            <BottomViewBar />
+            {/* <BottomViewBar /> */}
           </div>
           <AlsoOnDock />
         </Page>

@@ -20,11 +20,11 @@ const SwipeBar: React.FC = () => {
           <Emoji emoji={'👉'} label={'like'} />
         </RoundButton>
       </div>
-      <div className={styles.madeByWrapper}>
+      {/* <div className={styles.madeByWrapper}>
         <div className={styles.madeBy}>
           Made with love by 🤖 || 👩‍🎨
         </div>
-      </div>
+      </div> */}
     </div>
 
   )

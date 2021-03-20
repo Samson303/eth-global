@@ -17,6 +17,7 @@ import { SlideDown } from 'react-slidedown'
 import 'react-slidedown/lib/slidedown.css'
 import { useNvm } from '../../../context/NvmProvider'
 import { useSlider } from '../../../context/SliderProvider'
+import MetaCard from '../MetaCard/MetaCard'
 
 interface IProps {
   cryptoVoxelUrl?: string
@@ -55,33 +56,36 @@ const AlsoOnDock = ({ cryptoVoxelUrl, rareEffectUrl, othersUrls }: IProps) => {
         {isOpen ? (
           <div className={styles.slider}>
             <div className={styles.cardWrapper}>
-              <button onClick={handleToggle} className={styles.closeButton}>
-                x
-              </button>
-              <h3 className={styles.artistName}>
-                {nftData.nftName} by {nftData.nftAuthor}
-              </h3>
               <div className={styles.cardGrid}>
-                <AlsoOnCard
-                  serviceUrl={rareEffectUrl}
-                  serviceImageUrl={rareEffectImage}
-                  serviceName={'RareEffectV2'}
+                <MetaCard 
+                  artworkName={nftData.nftName}
+                  artist={nftData.nftAuthor}
+                  description={"description"}
+                  mintDate={"293847293"}
+                  price={"1002"}
                 />
-                <AlsoOnCard
-                  serviceUrl={cryptoVoxelsUrl}
-                  serviceImageUrl={cryptoVoxelsImage}
-                  serviceName={'VR'}
-                />
-                <AlsoOnCard
-                  serviceUrl={openSeaUrl}
-                  serviceImageUrl={openSeaImage}
-                  serviceName={'OpenSea'}
-                />
-                <AlsoOnCard
-                  serviceUrl={openSeaUrl}
-                  serviceImageUrl={openSeaImage}
-                  serviceName={'OpenSea'}
-                />
+                <div className={styles.alsoOnGrid}>
+                  <AlsoOnCard
+                    serviceUrl={rareEffectUrl}
+                    serviceImageUrl={rareEffectImage}
+                    serviceName={'RareEffectV2'}
+                  />
+                  <AlsoOnCard
+                    serviceUrl={cryptoVoxelsUrl}
+                    serviceImageUrl={cryptoVoxelsImage}
+                    serviceName={'VR'}
+                  />
+                  <AlsoOnCard
+                    serviceUrl={openSeaUrl}
+                    serviceImageUrl={openSeaImage}
+                    serviceName={'OpenSea'}
+                  />
+                  <AlsoOnCard
+                    serviceUrl={openSeaUrl}
+                    serviceImageUrl={openSeaImage}
+                    serviceName={'OpenSea'}
+                  />
+                </div>
               </div>
             </div>
           </div>
