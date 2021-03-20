@@ -17,7 +17,8 @@ import { SlideDown } from 'react-slidedown'
 import 'react-slidedown/lib/slidedown.css'
 import { useNvm } from '../../../context/NvmProvider'
 import { useSlider } from '../../../context/SliderProvider'
-import { nftLocationData, NftLocationData } from '../../../data/NftLocationData'
+import { nftLocationData } from '../../../data/NftLocationData'
+import MetaCard from '../MetaCard/MetaCard'
 
 const AlsoOnDock = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -80,33 +81,36 @@ const AlsoOnDock = () => {
         {isOpen ? (
           <div className={styles.slider}>
             <div className={styles.cardWrapper}>
-              <button onClick={handleToggle} className={styles.closeButton}>
-                x
-              </button>
-              <h3 className={styles.artistName}>
-                {nftData.nftName} by {nftData.nftAuthor}
-              </h3>
               <div className={styles.cardGrid}>
-                <AlsoOnCard
-                  serviceUrl={nftData.rareEffectUrl}
-                  serviceImageUrl={rareEffectImage}
-                  serviceName={'RareEffectV2'}
+                <MetaCard
+                  artworkName={nftData.nftName}
+                  artist={nftData.nftAuthor}
+                  description={'description'}
+                  mintDate={'293847293'}
+                  price={'1002'}
                 />
-                <AlsoOnCard
-                  serviceUrl={nftData.cryptoVoxelsUrl}
-                  serviceImageUrl={cryptoVoxelsImage}
-                  serviceName={'VR'}
-                />
-                <AlsoOnCard
-                  serviceUrl={openSeaUrl}
-                  serviceImageUrl={openSeaImage}
-                  serviceName={'OpenSea'}
-                />
-                <AlsoOnCard
-                  serviceUrl={openSeaUrl}
-                  serviceImageUrl={openSeaImage}
-                  serviceName={'OpenSea'}
-                />
+                <div className={styles.alsoOnGrid}>
+                  <AlsoOnCard
+                    serviceUrl={nftData.rareEffectUrl}
+                    serviceImageUrl={rareEffectImage}
+                    serviceName={'RareEffectV2'}
+                  />
+                  <AlsoOnCard
+                    serviceUrl={nftData.cryptoVoxelsUrl}
+                    serviceImageUrl={cryptoVoxelsImage}
+                    serviceName={'VR'}
+                  />
+                  <AlsoOnCard
+                    serviceUrl={openSeaUrl}
+                    serviceImageUrl={openSeaImage}
+                    serviceName={'OpenSea'}
+                  />
+                  <AlsoOnCard
+                    serviceUrl={openSeaUrl}
+                    serviceImageUrl={openSeaImage}
+                    serviceName={'OpenSea'}
+                  />
+                </div>
               </div>
             </div>
           </div>
