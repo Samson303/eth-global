@@ -43,17 +43,19 @@ const AlsoOnDock = ({ cryptoVoxelUrl, rareEffectUrl, othersUrls }: IProps) => {
       })
   }, [currentIndex, DDOs])
 
+  const{ isActive } = useDocker()
+
   const handleToggle = () => {
     setIsOpen(!isOpen)
   }
 
   return (
     <>
-      <DockButton onClick={handleToggle}>
+      {/* <DockButton onClick={handleToggle}>
         <Emoji emoji={'🔮'} label={'dislike'} />
-      </DockButton>
+      </DockButton> */}
       <SlideDown className={'my-dropdown-slidedown'}>
-        {isOpen ? (
+        {isActive ? (
           <div className={styles.slider}>
             <div className={styles.cardWrapper}>
               <div className={styles.cardGrid}>

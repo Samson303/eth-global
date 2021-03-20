@@ -14,10 +14,10 @@ const TopBar: React.FC = () => {
                 </FadedRoundButton>
             </div>
             <div className={styles.alignRight}>
-                <Button name={'CREATE'}/>
+                {/* <Button name={'CREATE'}/> */}
             </div>
             <div className={styles.alignLeft}>
-                <Button name={'COLLECT'}/>
+                {/* <Button name={'COLLECT'}/> */}
             </div>
             <div className={styles.alignRight}>
                 <FadedRoundButton >
