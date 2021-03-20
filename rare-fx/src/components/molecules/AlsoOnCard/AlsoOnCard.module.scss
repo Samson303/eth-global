@@ -4,14 +4,15 @@
     display: wrap;
     flex-direction: column;
     background-color: white;
-    border-radius: 2px;
+    border-radius: 0px;
     margin: auto;
+    border: 1px solid #1616AE;
 }
 
 .image {
     height: 160px;
     width: 200px;
-    border-radius: 2px;
+    border-radius: 0px;
     background-position: center;
     background-size: contain;
 }
@@ -40,7 +41,9 @@
 
 .viewButton:hover {
     background-color: white; 
-    color:  #1616AE;;
+    color:  #1616AE;
+
+    border: 1px solid #1616AE;
 
     cursor: pointer;
   }
