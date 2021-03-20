@@ -17,6 +17,7 @@ const Home: React.FC = () => {
   return (
     <NvmProvider>
       <SliderProvider>
+        <DockerProvider>
         <Page>
           <FXProgressBar/>
           <div className={styles.wrapper}>
@@ -30,6 +31,7 @@ const Home: React.FC = () => {
           </div>
           <AlsoOnDock/>
         </Page>
+        </DockerProvider>
       </SliderProvider>
     </NvmProvider>
   )
