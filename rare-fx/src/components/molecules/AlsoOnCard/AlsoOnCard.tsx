@@ -16,10 +16,12 @@ const AlsoOnCard: React.FC<ICardProps> = ({ serviceUrl, serviceImageUrl, service
         className={styles.image}
         style={{ backgroundImage: `url(${serviceImageUrl})` }}
       ></div>
-      <a href={serviceUrl}>
-        <div className={styles.text}>View on {serviceName}</div>
+      <a href={serviceUrl} target="_blank" rel="noreferrer">
+        <button className={styles.viewButton}>
+          View on {serviceName}
+        </button>
       </a>
-      <div className={styles.moreInfo}>More Info?</div>
+      {/* <div className={styles.moreInfo}>More Info?</div> */}
     </div>
   )
 }
