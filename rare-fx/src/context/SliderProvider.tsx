@@ -1,34 +1,55 @@
 import React, {
   createContext,
   ReactElement,
-  ReactNode,
+  ReactNode, useCallback,
   useContext,
   useEffect,
   useState,
 } from 'react'
+import {useNvm} from "./NvmProvider";
 
 interface SliderProviderValue {
   currentIndex: number
   next: () => void
   prev: () => void
+  progress: string
 }
 
 const SliderContext = createContext({} as SliderProviderValue)
 
-function SliderProvider({ children }: { children: ReactNode }): ReactElement {
+function SliderProvider({children}: { children: ReactNode }): ReactElement {
   const [currentIndex, setIndex] = useState(0)
+  const [progress, setProgress] = useState('0%')
+
+  const { DDOs } = useNvm()
+
+  useEffect(() => {
+    if (progress === '0%') {
+      setProgress('100%')
+    } else {
+      setProgress('0%')
+    }
+  }, [currentIndex])
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      console.log()
+      next()
+    }, 6000);
+  })
 
   const numberOfIndexes = (numberOfItems: number) => {
     return numberOfItems - 1
   }
-  const next = (numberOfItems: number) => {
-    const numberOfIndex = numberOfIndexes(numberOfItems)
+
+  const next = () => {
+    const numberOfIndex = numberOfIndexes(DDOs.length)
     const newIndex = currentIndex === numberOfIndex ? 0 : currentIndex + 1
     setIndex(newIndex)
   }
 
-  const prev = (numberOfItems: number) => {
-    const numberOfIndex = numberOfIndexes(numberOfItems)
+  const prev = () => {
+    const numberOfIndex = numberOfIndexes(DDOs.length)
     const newIndex = currentIndex === 0 ? numberOfIndex : currentIndex - 1
     setIndex(newIndex)
   }
@@ -40,6 +61,7 @@ function SliderProvider({ children }: { children: ReactNode }): ReactElement {
           currentIndex,
           next,
           prev,
+          progress
         } as SliderProviderValue
       }
     >
@@ -49,4 +71,4 @@ function SliderProvider({ children }: { children: ReactNode }): ReactElement {
 }
 
 const useSlider = (): SliderProviderValue => useContext(SliderContext)
-export { SliderProvider, useSlider, SliderContext }
+export {SliderProvider, useSlider, SliderContext}

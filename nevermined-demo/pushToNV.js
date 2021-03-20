@@ -17,6 +17,8 @@ async function run() {
 
     const nfts = await fetchMarketNfts()
 
+    // console.log(nfts[0])
+
     nfts.forEach((nft) => {
         pushToNVM(nft, publisher, nevermined)
     })
@@ -90,6 +92,9 @@ async function pushToNVM(nft, publisher, nevermined) {
             website: checkAttribute(nft, 'website'),
             mintbaseUrl: checkAttribute(nft, 'mintbase_url'),
             artistAddress: checkAttribute(nft, 'artist_address'),
+            description: nft.description,
+            price: nft.ethPrice,
+            mintedAt: nft.mintedOn
         }
     }
 
