@@ -12,3 +12,5 @@ export const cryptoVoxelsGenericUrl = 'https://www.cryptovoxels.com/play?coords=
 
 export const rareEffectGenericUrl = 'https://rareeffect.io/'
 export const openSeaUrl = 'https://opensea.io/'
+export const zoraImgageUrl = 'https://assets.ourzora.com/soclal-og.png'
+export const zoraUrl = 'https://store.zora.co/'
